@@ -70,7 +70,8 @@ python main.py
 Se não executar dessa forma, apenas clique no botão no canto superior direito no VScode
 dentro da "main.py" (Run Python File).
 
-Durante a execução, você poderá acompanhar os testes de desempenho com entrada interativa e visualizar o resumo final no terminal.
+4. O script será iniciado em modo interativo. Pressione 'Enter' para avançar entre as diferentes etapas da simulação.
+5. Ao final, serão exibidas duas tabelas com o sumário comparativo de desempenho para os cenários de baixo e alto volume de entregas.
 
 ## Notas
 
