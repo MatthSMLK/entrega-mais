@@ -21,12 +21,21 @@ Criar um simulador que permita:
 
 ```
 entrega_mais/
-├── main.py
-├── simulation/
-│   ├── simulation_runner.py
-│   ├── scenarios.py
-│   └── reporter.py
-└── README.md
+|-- data/
+|   |-- dados_cidades.py      # Define as cidades, CDs e arestas do grafo
+|-- models/
+|   |-- caminhao.py           # Modelo do caminhão
+|   |-- cidade.py             # Modelo da cidade
+|   |-- entrega.py            # Modelo da entrega
+|-- services/
+|   |-- graph_structures.py   # Implementações do grafo (Lista e Matriz)
+|   |-- roteirizador.py       # Lógica principal de roteirização e alocação
+|-- simulation/
+|   |-- simulation_runner.py  # Orquestrador que executa uma simulação
+|   |-- scenarios.py          # Define os cenários de teste (volume baixo/alto)
+|   |-- reporter.py           # Gera o sumário comparativo final
+|-- main.py                   # Ponto de entrada principal da aplicação
+|-- README.md                 # Detalhes pertinentes
 ```
 
 ## Como executar
@@ -47,4 +56,4 @@ Durante a execução, você poderá acompanhar os testes de desempenho com entra
 
 - O código está organizado em módulos para facilitar a leitura e manutenção.
 - Foram incluídos cenários pequenos, grandes e de estresse para simular diferentes cargas de trabalho.
-- O projeto é individual e segue as orientações do professor.
+- O projeto é individual.
