@@ -1,22 +1,24 @@
 # simulation/scenarios.py
 
+import random
 from models.cidade import Cidade
 from models.entrega import Entrega
-from data.dados_cidades import cidades_nomes
+from data.dados_cidades import cidades_nomes, centros_distribuicao_nomes
 
 def get_scenarios():
     """
-    Prepara e retorna os cenários de teste para a simulação.
-    Isso centraliza a criação de dados de teste em um único local.
+    Prepara e retorna os cenários de teste, incluindo um cenário de estresse
+    com um grande número de entregas geradas aleatoriamente.
     """
     cidades = {nome: Cidade(nome) for nome in cidades_nomes}
 
+    # Cenário Pequeno (para demonstração inicial)
     entregas_cenario_pequeno = [
         Entrega(cidades["Natal"], 500, 2),
         Entrega(cidades["Goiania"], 800, 1),
-        Entrega(cidades["Rio de Janeiro"], 1200, 2),
     ]
 
+    # Cenário Grande (volume médio)
     entregas_cenario_grande = [
         Entrega(cidades["Manaus"], 100, 5),
         Entrega(cidades["Porto Alegre"], 1500, 3),
@@ -24,12 +26,20 @@ def get_scenarios():
         Entrega(cidades["Salvador"], 800, 2),
         Entrega(cidades["Joao Pessoa"], 500, 1),
         Entrega(cidades["Belo Horizonte"], 950, 2),
-        Entrega(cidades["Campo Grande"], 750, 3),
-        Entrega(cidades["Sao Paulo"], 1000, 1),
-        Entrega(cidades["Goiania"], 1500, 1),
+        Entrega(cidades["Cuiaba"], 750, 3), # Usando nova cidade
     ]
     
+    # Cenário de Estresse (volume alto, para acentuar diferenças de performance)
+    entregas_cenario_estresse = []
+    destinos_possiveis = [c for c in cidades_nomes if c not in centros_distribuicao_nomes]
+    for _ in range(50):  # Gerando 50 entregas aleatórias
+        destino = random.choice(destinos_possiveis)
+        peso = random.randint(100, 2000)
+        prazo = random.randint(1, 5)
+        entregas_cenario_estresse.append(Entrega(cidades[destino], peso, prazo))
+
     return {
         "cenario_pequeno": entregas_cenario_pequeno,
-        "cenario_grande": entregas_cenario_grande
+        "cenario_grande": entregas_cenario_grande,
+        "cenario_estresse": entregas_cenario_estresse
     }
