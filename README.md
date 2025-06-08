@@ -1,59 +1,50 @@
-Projeto de otimização logística com múltiplos centros de distribuição
+# Entrega+ – Simulador de logística inteligente
 
-Sobre o projeto
-Este projeto é uma solução algorítmica desenvolvida para otimizar o processo de roteamento de entregas de uma empresa de logística fictícia. O objetivo principal é minimizar o tempo e a distância percorrida pelos caminhões, garantindo que cada entrega parta do centro de distribuição (CD) mais próximo do seu destino final e que as restrições operacionais (capacidade de carga, horas de trabalho) sejam respeitadas.
+Este projeto simula cenários logísticos para avaliação de desempenho em redes de entrega entre grandes cidades brasileiras. O sistema executa diferentes simulações e apresenta comparativos para tomada de decisão estratégica.
 
-O núcleo do projeto consiste na modelagem do problema utilizando grafos e na aplicação do algoritmo de Dijkstra para o cálculo de rotas mais curtas, além de uma análise de desempenho comparativa entre diferentes estruturas de dados.
+## Objetivo
 
-Funcionalidades principais
-Modelagem orientada a objetos: O sistema modela Cidades, Entregas (com peso e prazo), Caminhões (com capacidade e limite de horas) e o próprio Grafo de rotas.
+Criar um simulador que permita:
+- Avaliar desempenho de diferentes cenários logísticos.
+- Simular situações de carga normal e cenários de estresse.
+- Apresentar um resumo comparativo dos resultados obtidos.
 
-Roteirização inteligente: Utiliza o algoritmo de Dijkstra para calcular a rota mais curta a partir do Centro de Distribuição mais próximo de cada destino.
+## Cidades simuladas
 
-Análise de desempenho comparativa: O projeto foi estruturado para testar e comparar o desempenho de diferentes abordagens, conforme solicitado nos requisitos da avaliação:
+- Belém  
+- Recife  
+- Brasília  
+- São Paulo  
+- Florianópolis
 
-Grafo implementado com lista de adjacência vs. Matriz de adjacência.
-Algoritmo de Dijkstra otimizado com fila de prioridade (Heap) vs. uma busca em lista simples.
+## Estrutura do projeto
 
-Execução interativa e relatório final: O script principal roda de forma interativa, pausando após cada teste para permitir a análise dos resultados, e exibe um sumário comparativo completo no final.
+```
+entrega_mais/
+├── main.py
+├── simulation/
+│   ├── simulation_runner.py
+│   ├── scenarios.py
+│   └── reporter.py
+└── README.md
+```
 
-Estrutura de pastas
-O projeto foi organizado de forma modular para separar as responsabilidades, seguindo boas práticas de engenharia de software.
+## Como executar
 
-/
-|-- data/
-|   |-- dados_cidades.py      # Define as cidades, CDs e arestas do grafo
-|-- models/
-|   |-- caminhao.py           # Modelo do caminhão
-|   |-- cidade.py             # Modelo da cidade
-|   |-- entrega.py            # Modelo da entrega
-|-- services/
-|   |-- graph_structures.py   # Implementações do grafo (Lista e Matriz)
-|   |-- roteirizador.py       # Lógica principal de roteirização e alocação
-|-- simulation/
-|   |-- simulation_runner.py  # Orquestrador que executa uma simulação
-|   |-- scenarios.py          # Define os cenários de teste (volume baixo/alto)
-|   |-- reporter.py           # Gera o sumário comparativo final
-|-- main.py                   # Ponto de entrada principal da aplicação
-|-- README.md                 # Este arquivo
+1. Certifique-se de ter o Python 3 instalado.
+2. Abra um terminal e vá até a pasta onde está o projeto.
+3. Execute o seguinte comando:
 
-Tecnologias utilizadas
-Python 3
-Bibliotecas padrão do Python (time, collections, heapq).
-
-Como executar
-Certifique-se de ter o Python 3 instalado.
-Navegue até a pasta raiz do projeto pelo terminal.
-
-Execute o seguinte comando:
-Bash (Ctrl + ') no VScode
-
+```bash
 python main.py
-O script será iniciado em modo interativo. Pressione Enter para avançar entre as diferentes etapas da simulação.
+```
+Se não executar dessa forma, apenas clique no botão no canto superior direito no VScode
+dentro da "main.py" (Run Python File).
 
-Ao final, serão exibidas duas tabelas com o sumário comparativo de desempenho para os cenários de baixo e alto volume de entregas.
-Informações da disciplina
-Este trabalho foi desenvolvido como parte da avaliação A3 para a Unidade curricular digital de Estrutura de dados e Análise de algoritmos.
+Durante a execução, você poderá acompanhar os testes de desempenho com entrada interativa e visualizar o resumo final no terminal.
 
-Professor: Glauber Galvão
-Semestre: 2025.1
+## Notas
+
+- O código está organizado em módulos para facilitar a leitura e manutenção.
+- Foram incluídos cenários pequenos, grandes e de estresse para simular diferentes cargas de trabalho.
+- O projeto é individual e segue as orientações do professor.
