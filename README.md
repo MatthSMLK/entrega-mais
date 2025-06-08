@@ -48,4 +48,8 @@ Informações da disciplina
 Este trabalho foi desenvolvido como parte da avaliação A3 para a Unidade curricular digital de Estrutura de dados e Análise de algoritmos.
 
 Professor: Glauber Galvão
+<<<<<<< HEAD
 Semestre: 2025.1
+=======
+Semestre: 2025.1
+>>>>>>> 78fbcf7eee1e3f404fffaabf0ee69ee222b00070
