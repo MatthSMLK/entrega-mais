@@ -7,39 +7,41 @@ from data.dados_cidades import cidades_nomes, centros_distribuicao_nomes
 
 def get_scenarios():
     """
-    Prepara e retorna os cenários de teste, incluindo um cenário de estresse
-    com um grande número de entregas geradas aleatoriamente.
+    Prepara e retorna os cenários de teste com volumes de entrega
+    Baixo (10), Médio (50) e de Estresse (150).
     """
     cidades = {nome: Cidade(nome) for nome in cidades_nomes}
-
-    # Cenário Pequeno (para demonstração inicial)
-    entregas_cenario_pequeno = [
-        Entrega(cidades["Natal"], 500, 2),
-        Entrega(cidades["Goiania"], 800, 1),
-    ]
-
-    # Cenário Grande (volume médio)
-    entregas_cenario_grande = [
-        Entrega(cidades["Manaus"], 100, 5),
-        Entrega(cidades["Porto Alegre"], 1500, 3),
-        Entrega(cidades["Curitiba"], 900, 2),
-        Entrega(cidades["Salvador"], 800, 2),
-        Entrega(cidades["Joao Pessoa"], 500, 1),
-        Entrega(cidades["Belo Horizonte"], 950, 2),
-        Entrega(cidades["Cuiaba"], 750, 3), # Usando nova cidade
-    ]
-    
-    # Cenário de Estresse (volume alto, para acentuar diferenças de performance)
-    entregas_cenario_estresse = []
     destinos_possiveis = [c for c in cidades_nomes if c not in centros_distribuicao_nomes]
-    for _ in range(50):  # Gerando 50 entregas aleatórias
+
+    # --- Cenário de Baixo Volume ---
+    entregas_cenario_baixo = []
+    random.seed(42) # Semente para reprodutibilidade
+    for i in range(10):
         destino = random.choice(destinos_possiveis)
         peso = random.randint(100, 2000)
-        prazo = random.randint(1, 5)
+        prazo = random.randint(2, 6)
+        entregas_cenario_baixo.append(Entrega(cidades[destino], peso, prazo))
+
+    # --- Cenário de Médio Volume ---
+    entregas_cenario_medio = []
+    random.seed(84) # Semente diferente para um novo conjunto
+    for i in range(50):
+        destino = random.choice(destinos_possiveis)
+        peso = random.randint(100, 2000)
+        prazo = random.randint(2, 6)
+        entregas_cenario_medio.append(Entrega(cidades[destino], peso, prazo))
+    
+    # --- Cenário de Estresse (Alto Volume) ---
+    entregas_cenario_estresse = []
+    random.seed(126) # Semente diferente para um terceiro conjunto
+    for i in range(150):
+        destino = random.choice(destinos_possiveis)
+        peso = random.randint(100, 2000)
+        prazo = random.randint(2, 6)
         entregas_cenario_estresse.append(Entrega(cidades[destino], peso, prazo))
 
     return {
-        "cenario_pequeno": entregas_cenario_pequeno,
-        "cenario_grande": entregas_cenario_grande,
+        "cenario_baixo": entregas_cenario_baixo,
+        "cenario_medio": entregas_cenario_medio,
         "cenario_estresse": entregas_cenario_estresse
     }
