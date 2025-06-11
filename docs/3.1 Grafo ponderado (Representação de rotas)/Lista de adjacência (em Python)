@@ -1,0 +1,15 @@
+grafo_lista_adjacencia = {
+    "Belém": [("Manaus", 1600), ("Recife", 2100)],
+    "Manaus": [("Belém", 1600)],
+    "Recife": [("Belém", 2100), ("Salvador", 800)],
+    "Salvador": [("Recife", 800), ("Brasília", 1440)],
+    "Brasília": [("Salvador", 1440), ("Goiânia", 210), ("São Paulo", 1015)],
+    "Goiânia": [("Brasília", 210), ("Campo Grande", 935)],
+    "São Paulo": [("Brasília", 1015), ("Curitiba", 410), ("Belo Horizonte", 590), ("Campo Grande", 990)],
+    "Curitiba": [("São Paulo", 410), ("Florianópolis", 300)],
+    "Florianópolis": [("Curitiba", 300), ("Porto Alegre", 470)],
+    "Porto Alegre": [("Florianópolis", 470)],
+    "Campo Grande": [("São Paulo", 990), ("Goiânia", 935)],
+    "Belo Horizonte": [("São Paulo", 590), ("Vitória", 520)],
+    "Vitória": [("Belo Horizonte", 520)]
+}

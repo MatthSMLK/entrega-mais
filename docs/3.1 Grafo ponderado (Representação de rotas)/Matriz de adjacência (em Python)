@@ -1,0 +1,5 @@
+cidades = [
+    "Belém", "Manaus", "Recife", "Salvador", "Brasília", "Goiânia",
+    "São Paulo", "Curitiba", "Florianópolis", "Porto Alegre",
+    "Campo Grande", "Belo Horizonte", "Vitória"
+]
