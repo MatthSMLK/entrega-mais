@@ -65,7 +65,7 @@ class GrafoListaAdjacencia(Grafo):
                         predecessores[vizinho] = no_atual
                         heapq.heappush(fila_prioridade, (distancias[vizinho], vizinho))
         else:
-            # --- Alternativa com LISTA SIMPLES ---
+            #  Alternativa com LISTA SIMPLES
             visitados = set()
             nos_nao_visitados = list(self.nodes)
             while nos_nao_visitados:
