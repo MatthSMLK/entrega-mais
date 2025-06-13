@@ -98,7 +98,12 @@ dentro da "main.py" (Run Python File).
 
 - O código está organizado em módulos para facilitar a leitura e manutenção.
 - Foram incluídos cenários pequenos, médios, grandes e de estresse para simular diferentes cargas de trabalho.
-- O projeto é individual.
+- O projeto foi desenvolvido individualmente em todas suas etapas.
+
+## Links
+
+- github: https://github.com/MatthSMLK/entrega-mais
+- Video pitch:
 
 ## Informações da disciplina
 
